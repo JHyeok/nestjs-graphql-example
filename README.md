@@ -35,3 +35,11 @@ DB_DATABASE=test
 # 개발환경으로 실행
 $ npm run start:dev
 ```
+
+## GraphQL
+
+Query
+![graphql-query](./readme/graphql-query.png)
+
+Mutation
+![graphql-mutation](./readme/graphql-mutation.png)
