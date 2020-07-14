@@ -6,7 +6,9 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
 import { LoggingInterceptor } from 'src/common/interceptors/logging.interceptor';
 import { TypeOrmModule, TypeOrmModuleAsyncOptions } from '@nestjs/typeorm';
 import { Connection } from 'typeorm';
+import { GraphQLModule } from '@nestjs/graphql';
 import { ConfigModule, ConfigService } from './../config';
+import { BookModule } from '../book/book.module';
 
 @Module({
   imports: [
@@ -26,8 +28,12 @@ import { ConfigModule, ConfigService } from './../config';
         } as TypeOrmModuleAsyncOptions;
       },
     }),
+    GraphQLModule.forRoot({
+      autoSchemaFile: 'schema.gql',
+    }),
     ConfigModule,
     UserHttpModule,
+    BookModule,
   ],
   controllers: [AppController],
   providers: [
