@@ -9,6 +9,7 @@ import { Connection } from 'typeorm';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ConfigModule, ConfigService } from './../config';
 import { BookModule } from '../book/book.module';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -29,7 +30,7 @@ import { BookModule } from '../book/book.module';
       },
     }),
     GraphQLModule.forRoot({
-      autoSchemaFile: 'schema.gql',
+      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
     }),
     ConfigModule,
     UserHttpModule,
