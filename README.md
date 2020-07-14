@@ -39,7 +39,24 @@ $ npm run start:dev
 ## GraphQL
 
 Query
+```graphql
+query
+{
+  getBooks {
+    id, name, price
+  }
+}
+```
 ![graphql-query](./readme/graphql-query.png)
 
 Mutation
+```graphql
+mutation {
+  createBook (data: {name: "프로그래밍", price: 25000}) {
+    id,
+    name,
+    price
+  }
+}
+```
 ![graphql-mutation](./readme/graphql-mutation.png)
